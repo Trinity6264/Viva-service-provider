@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:viva_service_provider/screens/dashboard/history/history_screen.dart';
 import 'package:viva_service_provider/screens/dashboard/home/home_screen.dart';
 import 'package:viva_service_provider/screens/dashboard/map/map_screen.dart';
-import 'package:viva_service_provider/screens/dashboard/notifications/notification_screen.dart';
+import 'package:viva_service_provider/screens/dashboard/notifications/notifications.dart';
 
 import '../../shared/custom_colors.dart';
 
@@ -89,7 +89,7 @@ class _DashBoardState extends State<DashBoard> {
                           style: GoogleFonts.poppins(
                             color: blackColor,
                             fontWeight: FontWeight.w600,
-                            fontSize: 26,
+                            fontSize: 22,
                           ),
                         ),
                         const SizedBox(height: 12),
