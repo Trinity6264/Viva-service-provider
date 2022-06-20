@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viva_service_provider/screens/dashboard/dashboard_screen.dart';
 import 'package:viva_service_provider/shared/custom_button.dart';
 import 'package:viva_service_provider/shared/custom_colors.dart';
+import 'package:viva_service_provider/shared/custom_navigation.dart';
 import 'package:viva_service_provider/shared/custom_text_field.dart';
 import 'package:viva_service_provider/shared/input_dec.dart';
 
@@ -116,7 +118,9 @@ class LoginScreen extends StatelessWidget {
                 child: CustomButton(
                   width: _size.width * 0.4,
                   height: _size.height * .06,
-                  onPressed: () {},
+                  onPressed: () {
+                    customNavigation(context, const DashBoard());
+                  },
                   text: 'Login',
                 ),
               ),

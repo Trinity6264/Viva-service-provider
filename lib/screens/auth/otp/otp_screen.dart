@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viva_service_provider/screens/dashboard/dashboard_screen.dart';
 import 'package:viva_service_provider/shared/custom_colors.dart';
+
+import '../../../shared/custom_navigation.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({Key? key}) : super(key: key);
@@ -69,7 +72,9 @@ class OtpScreen extends StatelessWidget {
             ),
             SizedBox(height: size.height * .03),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                customNavigation(context, const DashBoard());
+              },
               label: Text(
                 'Resend Code',
                 style: GoogleFonts.poppins(
