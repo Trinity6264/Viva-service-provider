@@ -4,8 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../model/chat_model.dart';
 import '../../../../../shared/custom_colors.dart';
 
-class Chat extends StatelessWidget {
-  const Chat({Key? key}) : super(key: key);
+class Chat extends StatefulWidget {
+  Chat({Key? key}) : super(key: key);
+
+  @override
+  State<Chat> createState() => _ChatState();
+}
+
+class _ChatState extends State<Chat> {
+  String? messageContent;
 
   @override
   Widget build(BuildContext context) {
@@ -132,12 +139,25 @@ class Chat extends StatelessWidget {
                         borderRadius: BorderRadius.circular(22),
                       ),
                       child: Row(
-                        children: const [
-                          Icon(Icons.face, color: Colors.amber),
-                          SizedBox(width: 5),
+                        children: [
+                          const Icon(Icons.face, color: Colors.amber),
+                          const SizedBox(width: 5),
                           Flexible(
                             child: TextField(
-                              decoration: InputDecoration(
+                              onChanged: (val) {
+                                if (val.isEmpty) {
+                                  debugPrint('Empty');
+                                  setState(() {
+                                    messageContent = null;
+                                  });
+                                  return;
+                                }
+                                debugPrint('!Empty');
+                                setState(() {
+                                  messageContent = val;
+                                });
+                              },
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Type a message',
                                 hintStyle: TextStyle(
@@ -158,10 +178,12 @@ class Chat extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
+                      onPressed: messageContent == null ? null : () {},
+                      icon: Icon(
                         Icons.send_outlined,
-                        color: primaryColor,
+                        color: messageContent == null
+                            ? primaryLightColor
+                            : primaryColor,
                       ),
                     ),
                   ),

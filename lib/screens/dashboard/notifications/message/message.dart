@@ -43,7 +43,7 @@ class Message extends StatelessWidget {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    customNavigation(context, const Chat());
+                    customNavigation(context,  Chat());
                   },
                   child: Container(
                     width: double.infinity,
